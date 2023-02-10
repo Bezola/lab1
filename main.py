@@ -24,7 +24,7 @@ with open('data_list.txt', 'r') as f:
 # ----------------------Разделение блоков информации---------------------
 
     while True:
-        try:
+        try:  # try-exсept проверяет закончились ли поступающие блоки
             if data_list[i] != ' ':
                 upcoming_num.append(data_list[i])
 
@@ -48,5 +48,16 @@ with open('data_list.txt', 'r') as f:
                 upcoming_num = []
             i += 1
             check = False
-        except IndexError:  # try-exсept проверяет закончились ли поступающие блоки
+
+        except IndexError:  # Если блоки закончились, выводит последний блок
+            for num in control_num:
+                if num in upcoming_num:
+                    check = True
+                    for j in range(len(upcoming_num)):
+                        if upcoming_num[j] == num:
+                            upcoming_num[j] = num_to_text(num)
+                if check:
+                    for j in upcoming_num:
+                        answer += j
+                    print(answer)
             break
