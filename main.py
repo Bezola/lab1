@@ -47,6 +47,9 @@ with open('data_list.txt', 'r') as f:
     while work:
         temp = ''
         data_byte = f.read(1)
+        
+        if data_byte == '\n':
+            data_byte = ' '
 
         if data_byte != ' ' or len(data_byte) == 0:
             upcoming_num.append(data_byte)
