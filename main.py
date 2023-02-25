@@ -24,11 +24,10 @@ def num_to_text(number):
 
 control_line = str(input('Введите цифры: '))
 control_num = []
-print('Введённые цифры: ')
+
 for i in range(len(control_line)):
     if control_line[i] in num_list:
         control_num.append(control_line[i])
-        print(num_to_text(control_line[i]))
 
 print('-------')
 
